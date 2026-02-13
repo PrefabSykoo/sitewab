@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cpt Flow Chapka | Game Designer - Magic'Stick</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div style="padding-top: 40px;">
+            <a href="index.html" class="back-button"><i class="ph ph-caret-double-left"></i></a>
+        </div>
+
+        <div class="project-header">
+            <h1 class="detail-title">Magic'Stick</h1>
+            <h2 class="detail-subtitle">Genre: Beat 'em up</h2>
+            <video controls style="width: 100%; height: auto;">
+                <source src="Magik'Stick gameplay.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="project-content">
+            <section class="project-section">
+                <div class="text-content full-width">
+                    <h3>Gameplay Programmer</h3>
+                    <p>Using the rather limited visual coding of Construct 3, I created and fully customisable wave
+                        manger and AI for the enemy.</p>
+                    <p>The Wave Manager uses a 3-dimensional array stored in a. Son to encode all information needed to
+                        create a wave (the position of each spawner, what to spawn and how much). This. Jason is loaded
+                        from browser memory on lunch and then read every start of waves to position everything and then
+                        call the function that creates an enemy.</p>
+                    <p>The Enemy AI used A*algorithm, where each enemy move as a self-avoiding groups. To achieve this,
+                        I need to either:</p>
+                    <ul>
+                        <li>Recalculate the A* map every frame which would kill performance</li>
+                        <li>Overwrite the behaviour which would make enemies behave unpredicted.</li>
+                    </ul>
+                    <p>So, clearly I needed a better solution. Ultimately, I landed on a mix of both:</p>
+                    <ul>
+                        <li>Every 0.5 sec we recalculate the map around the enemy far from view, and every frame we do
+                            it for the enemy close to the player. Since the player focus on close enemies, we sacrifice
+                            a bit of performance to make them responsive.</li>
+                        <li>If an enemy overlap another enemy we overwrite the pathfinding with a biased random walk.
+                            While overlapping the enemy do not recalculate the A* map to save on performance.</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="Magick Stick moovement.png" alt="Magic'Stick Movement">
+                </div>
+            </section>
+
+            <section class="project-section">
+                <div class="text-content full-width">
+                    <h3>Level Design:</h3>
+                    <p>After coding it, I also designed every wave manually.</p>
+                    <p>Not to go blind I did a lot of play tests to know how different players react and tend to play
+                        our game.</p>
+                    <p>Using this data, I positioned each wave’s spawner at specific points, creating encirclement or
+                        pinch situation for the player, but also creating safe pathway with the grappling hook.</p>
+                    <p>This created an experience of a seemingly simple game that is in reality very hard, we wanted to
+                        push the player to truly learn each little mechanic and "exploit" we put in the game while
+                        making sure the game was actually achievable.</p>
+                </div>
+                <div class="image-content">
+                    <img src="MagikStickSpawner.png" alt="Magic'Stick Spawner">
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

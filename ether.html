@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cpt Flow Chapka | Game Designer - Ether</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div style="padding-top: 40px;">
+            <a href="index.html" class="back-button"><i class="ph ph-caret-double-left"></i></a>
+        </div>
+
+        <div class="project-header">
+            <h1 class="detail-title">Ether</h1>
+            <h2 class="detail-subtitle">Genre: Sound Game</h2>
+            <video controls style="width: 100%; height: auto;">
+                <source src="VideoEther.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="project-content">
+            <section class="project-section">
+                <div class="text-content full-width">
+                    <h3>A short production time.</h3>
+                    <p>The very short production time (2 months) forced to be efficient with the code, because I
+                        wouldn’t have time to do big rewrite it if change in the game design had to be made.</p>
+                    <p>As such at the very start of the project, I outlined the great component of our game:</p>
+                    <ul>
+                        <li>Entity with lots of variable logic to handle</li>
+                        <li>A freeform construction system that needs to be 100% reliable.</li>
+                        <li>Easy to iterate procedural generation.</li>
+                    </ul>
+                    <p>So, I chose an architecture inspired by modular pipeline: very atomically made snippets of logic
+                        that calls themselves in chains with as few in and out possible.</p>
+                </div>
+            </section>
+
+            <section class="project-section">
+                <div class="text-content">
+                    <h3>Build System not mechanics.</h3>
+                    <p>The first thing done was creating the play space.</p>
+                    <p>But building it by hand every time we wanted to try a size would have been a loss of valuable
+                        time.</p>
+                    <p>This script is responsible for procedural instantiation of a grid and all the game components
+                        that require the context of the grid</p>
+                </div>
+                <div class="image-content">
+                    <img src="GridManager.png" alt="Grid Manager">
+                </div>
+            </section>
+
+            <section class="project-section middle">
+                <div class="text-content">
+                    <h3>Sculpt System</h3>
+                    <p>Second was the only system that needed to rewrite from its original form, note that the vast
+                        majority of methods were already written.</p>
+                    <p>This system is responsible is a group of different pipelines that makes and destroy walls.</p>
+                    <p>To make it scalable in the long-term wall creator was from the get-go written as a library of
+                        modular method for each little operation that our walls could carry out.</p>
+                    <p>When Sculptor script was rewritten, the only thing that truly changed was the logic of when and
+                        how to call the generic WallCreator methods.</p>
+                    <p>This flexibility created by forward planning in code allowed us to rework one of our core
+                        mechanics in less than an afternoon freeing up resources to improve other aspects.</p>
+                </div>
+                <div class="image-content">
+                    <img src="Sculpt system.png" alt="Sculpt System" style="width: 100%; height: auto;">
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

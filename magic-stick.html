@@ -17,7 +17,7 @@
 
         <div class="project-header">
             <h1 class="detail-title">Magic'Stick</h1>
-            <h2 class="detail-subtitle">Genre: Beat 'em up</h2>
+            <h2 class="detail-subtitle" data-i18n="magic-subtitle">Genre: Beat 'em up</h2>
             <iframe
                 src="https://www.youtube.com/embed/KHJatW9AKFE?autoplay=1&mute=0&loop=1&playlist=KHJatW9AKFE&controls=1&modestbranding=1"
                 frameborder="0" allow="autoplay; encrypted-media"
@@ -28,26 +28,29 @@
         <div class="project-content">
             <section class="project-section">
                 <div class="text-content full-width">
-                    <h3>Gameplay Programmer</h3>
-                    <p>Using the rather limited visual coding of Construct 3, I created and fully customisable wave
-                        manger and AI for the enemy.</p>
-                    <p>The Wave Manager uses a 3-dimensional array stored in a. Son to encode all information needed to
-                        create a wave (the position of each spawner, what to spawn and how much). This. Jason is loaded
-                        from browser memory on lunch and then read every start of waves to position everything and then
-                        call the function that creates an enemy.</p>
-                    <p>The Enemy AI used A*algorithm, where each enemy move as a self-avoiding groups. To achieve this,
-                        I need to either:</p>
+                    <h3 data-i18n="magic-h1">Gameplay Programmer</h3>
+                    <p data-i18n="magic-p1">Using the rather limited visual coding of Construct 3, I created a fully
+                        customizable wave manager and AI for the enemies.</p>
+                    <p data-i18n="magic-p2">The Wave Manager uses a 3-dimensional array stored in a JSON file to encode
+                        all information needed to create a wave (the position of each spawner, what to spawn and how
+                        much). This JSON is loaded from browser memory on launch and then read at the start of every
+                        wave to position everything and call the function that instantiates an enemy.</p>
+                    <p data-i18n="magic-p3">The Enemy AI uses the A* algorithm, where enemies move as self-avoiding
+                        groups. To achieve this, I needed to either:</p>
                     <ul>
-                        <li>Recalculate the A* map every frame which would kill performance</li>
-                        <li>Overwrite the behaviour which would make enemies behave unpredicted.</li>
+                        <li data-i18n="magic-li1">Recalculate the A* map every frame, which would kill performance.</li>
+                        <li data-i18n="magic-li2">Overwrite the behavior, which would make enemies behave unpredictably.
+                        </li>
                     </ul>
-                    <p>So, clearly I needed a better solution. Ultimately, I landed on a mix of both:</p>
+                    <p data-i18n="magic-p4">So, clearly I needed a better solution. Ultimately, I landed on a mix of
+                        both:</p>
                     <ul>
-                        <li>Every 0.5 sec we recalculate the map around the enemy far from view, and every frame we do
-                            it for the enemy close to the player. Since the player focus on close enemies, we sacrifice
-                            a bit of performance to make them responsive.</li>
-                        <li>If an enemy overlap another enemy we overwrite the pathfinding with a biased random walk.
-                            While overlapping the enemy do not recalculate the A* map to save on performance.</li>
+                        <li data-i18n="magic-li3">Every 0.5 sec we recalculate the map around the enemies far from view,
+                            and every frame we do it for the enemies close to the player. Since the player focuses on
+                            close enemies, we sacrifice a bit of performance to make them highly responsive.</li>
+                        <li data-i18n="magic-li4">If an enemy overlaps another enemy, we overwrite the pathfinding with
+                            a biased random walk. While overlapping, the enemy does not recalculate the A* map to save
+                            on performance.</li>
                     </ul>
                 </div>
                 <div class="image-content">
@@ -57,15 +60,16 @@
 
             <section class="project-section">
                 <div class="text-content full-width">
-                    <h3>Level Design:</h3>
-                    <p>After coding it, I also designed every wave manually.</p>
-                    <p>Not to go blind I did a lot of play tests to know how different players react and tend to play
-                        our game.</p>
-                    <p>Using this data, I positioned each wave’s spawner at specific points, creating encirclement or
-                        pinch situation for the player, but also creating safe pathway with the grappling hook.</p>
-                    <p>This created an experience of a seemingly simple game that is in reality very hard, we wanted to
-                        push the player to truly learn each little mechanic and "exploit" we put in the game while
-                        making sure the game was actually achievable.</p>
+                    <h3 data-i18n="magic-h2">Level Design</h3>
+                    <p data-i18n="magic-p5">After coding it, I also designed every wave manually.</p>
+                    <p data-i18n="magic-p6">Not to go blind, I conducted a lot of playtests to know how different
+                        players react and tend to play our game.</p>
+                    <p data-i18n="magic-p7">Using this data, I positioned each wave’s spawner at specific points,
+                        creating encirclement or pinch situations for the player, but also creating safe pathways with
+                        the grappling hook.</p>
+                    <p data-i18n="magic-p8">This created an experience of a seemingly simple game that is in reality
+                        very demanding. We wanted to push the player to truly learn each little mechanic and "exploit"
+                        we put in the game, while making sure the game was actually achievable.</p>
                 </div>
                 <div class="image-content">
                     <img src="MagikStickSpawner.png" alt="Magic'Stick Spawner">
@@ -73,6 +77,56 @@
             </section>
         </div>
     </div>
+
+    <script>
+        const translations = {
+            "en": {
+                "magic-subtitle": "Genre: Beat 'em up",
+                "magic-h1": "Gameplay Programmer",
+                "magic-p1": "Using the rather limited visual coding of Construct 3, I created a fully customizable wave manager and AI for the enemies.",
+                "magic-p2": "The Wave Manager uses a 3-dimensional array stored in a JSON file to encode all information needed to create a wave (the position of each spawner, what to spawn and how much). This JSON is loaded from browser memory on launch and then read at the start of every wave to position everything and call the function that instantiates an enemy.",
+                "magic-p3": "The Enemy AI uses the A* algorithm, where enemies move as self-avoiding groups. To achieve this, I needed to either:",
+                "magic-li1": "Recalculate the A* map every frame, which would kill performance.",
+                "magic-li2": "Overwrite the behavior, which would make enemies behave unpredictably.",
+                "magic-p4": "So, clearly I needed a better solution. Ultimately, I landed on a mix of both:",
+                "magic-li3": "Every 0.5 sec we recalculate the map around the enemies far from view, and every frame we do it for the enemies close to the player. Since the player focuses on close enemies, we sacrifice a bit of performance to make them highly responsive.",
+                "magic-li4": "If an enemy overlaps another enemy, we overwrite the pathfinding with a biased random walk. While overlapping, the enemy does not recalculate the A* map to save on performance.",
+                "magic-h2": "Level Design",
+                "magic-p5": "After coding it, I also designed every wave manually.",
+                "magic-p6": "Not to go blind, I conducted a lot of playtests to know how different players react and tend to play our game.",
+                "magic-p7": "Using this data, I positioned each wave’s spawner at specific points, creating encirclement or pinch situations for the player, but also creating safe pathways with the grappling hook.",
+                "magic-p8": "This created an experience of a seemingly simple game that is in reality very demanding. We wanted to push the player to truly learn each little mechanic and \"exploit\" we put in the game, while making sure the game was actually achievable."
+            },
+            "fr": {
+                "magic-subtitle": "Genre : Beat 'em up",
+                "magic-h1": "Programmation Gameplay",
+                "magic-p1": "En utilisant le codage visuel plutôt limité de Construct 3, j'ai créé un gestionnaire de vagues entièrement personnalisable ainsi qu'une IA pour les ennemis.",
+                "magic-p2": "Le gestionnaire de vagues utilise un tableau tridimensionnel stocké dans un fichier JSON pour encoder toutes les informations nécessaires à la création d'une vague (la position de chaque spawner, le type d'ennemi et leur quantité). Ce JSON est chargé depuis la mémoire du navigateur au lancement, puis lu au début de chaque vague pour positionner les éléments et appeler la fonction de création des ennemis.",
+                "magic-p3": "L'IA des ennemis utilise l'algorithme A*, où chaque ennemi se déplace au sein de groupes s'évitant mutuellement. Pour y parvenir, je devais soit :",
+                "magic-li1": "Recalculer la carte A* à chaque image, ce qui aurait ruiné les performances.",
+                "magic-li2": "Surcharger le comportement, rendant les déplacements des ennemis imprévisibles.",
+                "magic-p4": "Il me fallait donc une meilleure solution. Finalement, j'ai opté pour un mélange des deux :",
+                "magic-li3": "Toutes les 0,5 secondes, nous recalculons la carte autour des ennemis éloignés de la caméra, et à chaque image pour les ennemis proches du joueur. Comme le joueur se concentre sur les ennemis proches, nous sacrifions un peu de performance pour maximiser leur réactivité.",
+                "magic-li4": "Si un ennemi en chevauche un autre, nous contournons le pathfinding avec une marche aléatoire biaisée. Pendant le chevauchement, l'ennemi ne recalcule pas la carte A* pour économiser les performances.",
+                "magic-h2": "Level Design",
+                "magic-p5": "Après avoir programmé le système, j'ai également conçu chaque vague manuellement.",
+                "magic-p6": "Pour ne pas avancer à l'aveugle, j'ai effectué de nombreux playtests afin de comprendre comment les différents profils de joueurs réagissaient et jouaient.",
+                "magic-p7": "En utilisant ces données, j'ai positionné les spawners de chaque vague à des endroits spécifiques, créant des situations d'encerclement ou de prise en étau pour le joueur, tout en ménageant des voies d'échappement sûres grâce au grappin.",
+                "magic-p8": "Cela a permis de créer une expérience de jeu en apparence simple mais en réalité très exigeante. Nous voulions pousser le joueur à maîtriser chaque petite mécanique et \"exploit\" intégré, tout en veillant à ce que le jeu reste totalement surmontable."
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedLang = localStorage.getItem("selectedLang") || "en";
+            const elements = document.querySelectorAll("[data-i18n]");
+            elements.forEach(element => {
+                const key = element.getAttribute("data-i18n");
+                if (translations[savedLang] && translations[savedLang][key]) {
+                    element.innerHTML = translations[savedLang][key];
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

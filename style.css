@@ -116,7 +116,6 @@ header {
     opacity: 1;
     filter: grayscale(0%);
     transform: scale(1.1);
-    /* Lueur optionnelle pour marquer la sélection */
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
 

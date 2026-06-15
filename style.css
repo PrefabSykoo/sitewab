@@ -133,7 +133,7 @@ a {
     color: #0077b5;
 }
 
-.header-icon svg:hover {
+.header-links a:hover svg {
     fill: #fa5c5c;
 }
 
